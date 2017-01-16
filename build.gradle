@@ -1,0 +1,88 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+apply plugin: 'war'
+war {
+    group 'FinTechOne'
+    baseName = 'FOGS'
+    version =  '0.1.0'
+}
+
+//jar {
+//    group 'FinTechOne'
+//    baseName = 'FOGS'
+//    version =  '0.1.0'
+//}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+    compile group: 'org.springframework.boot', name: 'spring-boot-devtools'
+// https://mvnrepository.com/artifact/org.jasypt/jasypt-spring31
+    compile group: 'org.jasypt', name: 'jasypt-spring31', version: '1.9.2'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-rest
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+// https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+    compile group: 'org.springframework.security', name: 'spring-security-core', version: '4.2.0.RELEASE'
+// https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.10'
+// https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity4
+    compile group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity4', version: '2.1.2.RELEASE'
+// https://mvnrepository.com/artifact/net.sourceforge.nekohtml/nekohtml
+    compile group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
+//    compile "com.querydsl:querydsl-jpa:4.1.4"
+//    compile "com.querydsl:querydsl-apt:4.1.4:jpa" // Magic happens here}
+// https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports
+    compile group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.3.1'
+// https://mvnrepository.com/artifact/com.lowagie/itext
+    compile group: 'com.lowagie', name: 'itext', version: '2.1.7' // without this, jasperreports will cause error
+// https://mvnrepository.com/artifact/org.olap4j/olap4j
+    compile group: 'org.olap4j', name: 'olap4j', version: '1.2.0' // without this, jasperreports will cause error
+// https://mvnrepository.com/artifact/org.springframework/spring-context-support
+    compile group: 'org.springframework', name: 'spring-context-support', version: '4.3.4.RELEASE' // for JasperReportsPdfView
+// https://mvnrepository.com/artifact/org.apache.poi/poi
+    compile group: 'org.apache.poi', name: 'poi', version: '3.14' // for generating excel reports. Cannot use version 3.15 because the new HSSFColor.getTripletHash returns "Map" instead of "HashTable"
+// https://mvnrepository.com/artifact/org.hibernate/hibernate-envers
+    compile group: 'org.hibernate', name: 'hibernate-envers', version: '5.0.11.Final'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-mail
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail'
+// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+//    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+// https://mvnrepository.com/artifact/javax.mail/mail
+//    compile group: 'javax.mail', name: 'mail', version: '1.4.7'
+//// https://mvnrepository.com/artifact/org.springframework/spring-aspects
+//    compile group: 'org.springframework', name: 'spring-aspects', version: '4.3.4.RELEASE'
+    compile fileTree(dir: 'lib', include: '*.jar', excludes:['com.lowagie.text*.jar','org.eclipse.orbit.mongodb*.jar'])
+//    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+    runtime group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14'
+}

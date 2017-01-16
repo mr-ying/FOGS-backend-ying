@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.olap4j:olap4j:1.2.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.olap4j/olap4j/1.2.0/21d5b553313ef80fa366ffd4ed8645765b67fef6/olap4j-1.2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.olap4j/olap4j/1.2.0/1c0482d81a7f849fc7a5347ee0fecb3f6aff95c8/olap4j-1.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
