@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.querydsl:querydsl-apt:jpa:4.1.4">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.querydsl/querydsl-apt/4.1.4/1f488198e5251dbe3ee56a8ebd8d93ba7fd5c17a/querydsl-apt-4.1.4-jpa.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.querydsl/querydsl-apt/4.1.4/468953eece3e7fcfd2e567894d7f9d8b5a0887f/querydsl-apt-4.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

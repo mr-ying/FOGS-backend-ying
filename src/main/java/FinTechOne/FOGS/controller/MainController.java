@@ -9,6 +9,7 @@ public class MainController {
     static final String springDataRestBasePath = "/api";
     static final String Id = "/{idntty}";
     static final String approve = "/approve";
+    static final String filter = "/filter";
 
     @RequestMapping("/")
     public String app() {

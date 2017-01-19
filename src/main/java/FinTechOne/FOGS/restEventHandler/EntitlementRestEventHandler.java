@@ -1,8 +1,10 @@
 package FinTechOne.FOGS.restEventHandler;
 
+import FinTechOne.FOGS.domain.Currency;
 import FinTechOne.FOGS.domain.Entitlement;
 import FinTechOne.FOGS.exception.DuplicateKeyException;
 import FinTechOne.FOGS.exception.DuplicateKeyException.KeyProperty;
+import FinTechOne.FOGS.repository.CurrencyRepository;
 import FinTechOne.FOGS.repository.EntitlementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,7 +20,7 @@ import java.util.List;
 
 
 @Component
-@RepositoryEventHandler(Entitlement.class)
+@RepositoryEventHandler
 public class EntitlementRestEventHandler {
     @Autowired
     private MailSender mailSender;
@@ -35,7 +37,6 @@ public class EntitlementRestEventHandler {
         if (entitlement.getUserId() != null &&
                 entitlement.getUserId().trim() != "" &&
                 repo.countByUserId(entitlement.getUserId())>0) {
-//            KeyProperty keyProperty = KeyProperty.of("userId", entitlement.getUserId());
             List<KeyProperty> keyProperties = new ArrayList<KeyProperty>();
             keyProperties.add(KeyProperty.of("userId", entitlement.getUserId()));
             throw new DuplicateKeyException("Entitlement", keyProperties, "DuplicateKey", "Record already exists in Entitlement");

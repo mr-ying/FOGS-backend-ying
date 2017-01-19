@@ -1,7 +1,4 @@
-package FinTechOne.FOGS.validator.annotation;
-
-
-import FinTechOne.FOGS.validator.DateFormatValidator;
+package FinTechOne.FOGS.validator.hibernate;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -12,16 +9,14 @@ import java.lang.annotation.Target;
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
-@Target({ FIELD, METHOD, PARAMETER, ANNOTATION_TYPE })
+@Target({ FIELD })
 @Retention(RUNTIME)
-@Constraint(validatedBy = DateFormatValidator.class)
+@Constraint(validatedBy = PhoneNumberValidator.class)
 @Documented
-public @interface DateFormat {
-    String message() default "{FinTechOne.FOGS.validator.annotation.DateFormat.message}";
+public @interface PhoneNumber {
+    String message() default "{FinTechOne.FOGS.validator.hibernate.CurrencyCode.message}";
 
     Class<?>[] groups() default { };
 
     Class<? extends Payload>[] payload() default { };
-
-    String value();
 }

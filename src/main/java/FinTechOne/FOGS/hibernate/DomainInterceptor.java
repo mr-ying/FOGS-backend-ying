@@ -47,7 +47,9 @@ public class DomainInterceptor extends EmptyInterceptor {
                             Object oldValue = previousState[i];
                             Object newValue = currentState[i];
                             keyProperties.add(KeyProperty.of(columnName, oldValue, newValue));
-                            hasError = hasError || !oldValue.equals(newValue);
+                            hasError = hasError || !(
+                                    oldValue == null && newValue == null ||
+                                    oldValue.equals(newValue));
 
                         }
                         if (hasError){

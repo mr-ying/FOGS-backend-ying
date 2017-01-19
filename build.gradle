@@ -79,10 +79,17 @@ dependencies {
 //    compile group: 'javax.mail', name: 'mail', version: '1.4.7'
 //// https://mvnrepository.com/artifact/org.springframework/spring-aspects
 //    compile group: 'org.springframework', name: 'spring-aspects', version: '4.3.4.RELEASE'
+    compile "com.querydsl:querydsl-jpa:4.1.4"
+    compile "com.querydsl:querydsl-apt:4.1.4:jpa" // Magic happens here
     compile fileTree(dir: 'lib', include: '*.jar', excludes:['com.lowagie.text*.jar','org.eclipse.orbit.mongodb*.jar'])
 //    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     runtime group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
 }
 task wrapper(type: Wrapper) {
     gradleVersion = '2.14'
+}
+idea {
+    module {
+        sourceDirs += file('generated/')
+    }
 }

@@ -25,6 +25,9 @@ public class ERPUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         Entitlement user = this.repository.findByUserId(name);
+        if (user==null){
+            throw new UsernameNotFoundException("User Name Not found");
+        }
         ArrayList<String> roles = new ArrayList<>();
         roles.add("ROLE_" + user.getRole().toUpperCase());
         return new EntitlementUserDetails(user, AuthorityUtils.createAuthorityList(roles.toArray(new String[0])));

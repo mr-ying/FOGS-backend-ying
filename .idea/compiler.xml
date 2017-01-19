@@ -2,13 +2,16 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
+      <profile default="true" name="Default" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ERP_main" target="1.8" />
-      <module name="ERP_test" target="1.8" />
       <module name="FOGS_main" target="1.8" />
       <module name="FOGS_test" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-Xlint:unchecked" />
   </component>
 </project>

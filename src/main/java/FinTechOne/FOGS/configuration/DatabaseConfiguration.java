@@ -90,7 +90,7 @@ public class DatabaseConfiguration {
         eb.setJpaDialect(jpaDialect());
         Properties props = new Properties();
         props.setProperty("hibernate.hbm2ddl.auto", hbm2ddlAuto);
-        props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect"); // for MySQL
+        props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57InnoDBDialect"); // for MySQL
         props.setProperty("hibernate.id.new_generator_mappings", "false"); // hibernate_sequence table is not used.
         props.setProperty("hibernate.ejb.interceptor", "FinTechOne.FOGS.hibernate.DomainInterceptor");
         eb.setJpaProperties(props);

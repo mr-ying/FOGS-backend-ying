@@ -1,7 +1,8 @@
 package FinTechOne.FOGS.domain;
 
-import FinTechOne.FOGS.validator.annotation.DateFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.querydsl.core.annotations.PropertyType;
+import com.querydsl.core.annotations.QueryType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -14,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
 
 @Entity
 @Data
@@ -24,6 +24,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper=false)
 public class Entitlement extends EntityIdKeyBase {
 
+    private static final long serialVersionUID = -6920051131047352660L;
     public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
     @NotNull
@@ -42,6 +43,7 @@ public class Entitlement extends EntityIdKeyBase {
     @NotBlank
     @Size(max=72)
     @JsonIgnore
+    @QueryType(PropertyType.NONE)
     private String password;
     @NotNull
     @NotBlank

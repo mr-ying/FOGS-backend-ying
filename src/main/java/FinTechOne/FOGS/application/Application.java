@@ -14,7 +14,8 @@ import java.util.Arrays;
         "FinTechOne.FOGS.component",
         "FinTechOne.FOGS.controller",
         "FinTechOne.FOGS.storage",
-        "FinTechOne.FOGS.restEventHandler"
+        "FinTechOne.FOGS.restEventHandler",
+        "FinTechOne.FOGS.validator"
 })
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
